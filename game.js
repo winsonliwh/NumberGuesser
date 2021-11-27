@@ -33,6 +33,10 @@ guessButton.addEventListener('click', () => {
   updateScore(winner);
 
   // Display the winner
+  if (humanIsWinner == undefined){
+    // Task 8: added alert if human selected number 10
+    alert('You have selected 10! You lose! Pls select 0-9');
+  }
   if (humanIsWinner) {
     guessButton.innerText = 'You Win!!!!!';
     guessButton.classList.toggle('winning-text')
@@ -64,10 +68,16 @@ nextRoundButton.addEventListener('click', () => {
   // Reset the guess input box and the target number display:
   targetNumberDisplay.innerText = '?';
   guessButton.innerText = 'Make a Guess';
-  humanGuessInput.value = '';
+  humanGuessInput.value = '0';
   computerGuessDisplay.innerText = '?';
   computerWinsDisplay.innerText = '';
   guessButton.classList.remove('winning-text');
+
+  //Task 8 Fix: if human selected 10, the add button disabled
+  //Furthermore, if human selected -1, the subtractButton disabled
+  //Thus, reset subtract button to disable and add button to enable because humanGuessInput.value = '0'
+  subtractButton.setAttribute('disabled', true);
+  addButton.removeAttribute('disabled');
 });
 
 const addButton = document.getElementById('add');
@@ -84,13 +94,15 @@ subtractButton.addEventListener('click', () => {
 });
 
 const handleValueChange = value => {
-  if (value > 0 && value <= 9) {
+  if (value > 0 && value < 9) {
     subtractButton.removeAttribute('disabled');
     addButton.removeAttribute('disabled');
-  } else if (value > 9) {
+  } else if (value >= 9) {
     addButton.setAttribute('disabled', true);
   } else if (value <= 0) {
     subtractButton.setAttribute('disabled', true);
+  } else {
+    alert('What is your input?');
   }
 }
 
