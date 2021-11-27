@@ -9,11 +9,11 @@ const generateTarget = () => {
   return Math.floor(Math.random()*10);
 }
 
-for (let i=0; i<100; i++) {
+/* for (let i=0; i<100; i++) {
 generatedTargetString += '' + generateTarget() + ' ' + generateTarget() + ' ' + generateTarget() + ' ' + generateTarget() + ' ' + generateTarget() + ' ' + generateTarget() + ' ' + generateTarget() + ' ' + generateTarget() + ' ' + generateTarget() + ' ' + generateTarget() + ' ';
 };
 console.log(generatedTargetString);
-
+ */
 const compareGuesses = (humanGuess, computerGuess, targetNumber) => {
   if (humanGuess > 9) {
     alert("Please select 0-9!");
