@@ -20,7 +20,7 @@ const compareGuesses = (humanGuess, computerGuess, targetNumber) => {
     return undefined
   } else {
 */
-    return Math.abs(humanGuess - targetNumber) <= Math.abs(computerGuess - targetNumber) ? true : false;
+    return absFunction(humanGuess, targetNumber) <= absFunction(computerGuess, targetNumber) ? true : false;
 //  }
 }
 
@@ -30,4 +30,11 @@ const updateScore = winner => {
 
 const advanceRound = () => {
   currentRoundNumber++;
+  console.log('Hello all~~');
+  console.log(currentRoundNumber);
 }
+
+function absFunction(humanGuess, targetNumber) {
+  return Math.abs(humanGuess - targetNumber);
+}
+
