@@ -105,7 +105,7 @@ const handleValueChange = value => {
   } else if (value <= 0) {
     subtractButton.setAttribute('disabled', true);
   } else {
-    //Since human cannot input 10 by fixing 
+    //Since human cannot input 10 by fixing, deleted below alert which no need to show 
     // if (value > 0 && value < 9)
     // and else if (value >= 9)
     //alert('What is your input?');
